@@ -1,0 +1,31 @@
+{
+    "files.associations": {
+        "gl_integration.h": "c",
+        "glu.h": "c",
+        "libdragon.h": "c",
+        "n64sys.h": "c",
+        "type_traits": "c",
+        "xtr1common": "c",
+        "xutility": "c",
+        "utility": "c",
+        "typeinfo": "c",
+        "gl.h": "c",
+        "material64_internal.h": "c",
+        "bit": "c",
+        "compare": "c",
+        "cstddef": "c",
+        "limits": "c",
+        "new": "c",
+        "algorithm": "c",
+        "functional": "c",
+        "optional": "c",
+        "system_error": "c",
+        "array": "c",
+        "tuple": "c",
+        "ranges": "c",
+        "regsinternal.h": "c",
+        "vi.h": "c",
+        "xiosbase": "c",
+        "xlocale": "c"
+    }
+}
