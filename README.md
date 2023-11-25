@@ -1,5 +1,5 @@
 # BrewReality
- A bit of a tech demo made with Libdragon unstable, features 128x128 color textures with trilinear mipmap interpolation, fully fitting TMEM, and a fully dynamic sky.
+ A bit of a tech demo made with Libdragon unstable, features 128x128 color textures with trilinear mipmap interpolation, fully fitting TMEM, and a fully dynamic sky. This demo was inspired by tech demos showed by SGI to showcase their powerful hardware. The N64 has these capabilities as well, being developed by SGI.
 
 Graphics in this demo are fully done with the principles of a Reality Engine, meaning the display output you see: 
 
