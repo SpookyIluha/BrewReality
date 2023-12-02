@@ -11,7 +11,6 @@
 #include "camera.h"
 #include "aircraft.h"
 #include "vector.h"
-#include "../../src/utils.h"
 
 // Set this to 1 to enable rdpq debug output.
 // The demo will only run for a single frame and stop.
@@ -235,17 +234,17 @@ void render()
             glEnable(GL_RDPQ_TEXTURING_N64);
 
             rdpq_tex_multi_begin();
-            surface_t surf = sprite_get_pixels(sprites[8]);
-            rdpq_tex_load(TILE0, &surf, &(rdpq_texparms_t){.s.repeats = REPEAT_INFINITE, .t.repeats = REPEAT_INFINITE,
+            surface_t surf = sprite_get_pixels(sprites[9]);
+            rdpq_tex_upload(TILE0, &surf, &(rdpq_texparms_t){.s.repeats = REPEAT_INFINITE, .t.repeats = REPEAT_INFINITE, .s.scale_log = -1, .t.scale_log = -1, .t.mirror = true});
+            surf = sprite_get_pixels(sprites[8]);
+            rdpq_tex_upload(TILE1, &surf, &(rdpq_texparms_t){.s.repeats = REPEAT_INFINITE, .t.repeats = REPEAT_INFINITE,
             .s.translate = (animation % 8192) * 0.008f, .t.translate = (animation % 8192) * 0.04f, .s.scale_log = -1, .t.scale_log = -1});
-            surf = sprite_get_pixels(sprites[9]);
-            rdpq_tex_load(TILE1, &surf, &(rdpq_texparms_t){.s.repeats = REPEAT_INFINITE, .t.repeats = REPEAT_INFINITE, .s.scale_log = -1, .t.scale_log = -1, .t.mirror = true});
             rdpq_tex_multi_end();
             rdpq_mode_filter(FILTER_BILINEAR);
             rdpq_mode_mipmap(MIPMAP_NONE,0);
 
-            rdpq_mode_combiner(RDPQ_COMBINER2((SHADE,0,ENV,0),(TEX1,0,SHADE,0),
-                                            (PRIM,0,COMBINED_ALPHA,COMBINED),(TEX0,ENV,SHADE,0)));
+            rdpq_mode_combiner(RDPQ_COMBINER2((SHADE,0,ENV,0),(TEX0,0,SHADE,0),
+                                            (PRIM,0,COMBINED_ALPHA,COMBINED),(TEX1,ENV,SHADE,0)));
 
             rdpq_mode_blender(RDPQ_BLENDER2((BLEND_RGB,IN_ALPHA,IN_RGB,INV_MUX_ALPHA),
                                             (CYCLE1_RGB,SHADE_ALPHA,FOG_RGB,INV_MUX_ALPHA)));
